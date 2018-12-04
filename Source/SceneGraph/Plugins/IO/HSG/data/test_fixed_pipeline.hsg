@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<haf_scene_graph>
+  <group>
+    <transform>
+      <translation>
+        -2 0 -5
+      </translation>
+      <sphere name="sphere1">
+        <center>0 0 0</center>
+        <radius>1</radius>
+        <subdivisions>4</subdivisions>
+        <state>
+          <enable>vertex_array</enable>
+          <enable>normal_array</enable>
+          <material>
+            <ambient>0.1 0.1 0.1 1.0</ambient>
+            <diffuse>0.0 0.8 0.0 1.0</diffuse>
+            <specular>0.8 0.8 0.8</specular>
+            <shininess>100</shininess>
+            <face>front</face>
+          </material>
+          <polygon_mode>
+            <face>front</face>
+            <mode>lines</mode>
+          </polygon_mode>
+        </state>
+      </sphere>
+    </transform>
+    <transform>
+      <translation>
+        0 0 -5
+      </translation>
+      <sphere name="sphere3">
+        <center>0 0 0</center>
+        <radius>1.0</radius>
+        <subdivisions>3</subdivisions>
+        <state>
+          <enable>vertex_array</enable>
+          <enable>normal_array</enable>
+          <material>
+            <ambient>0.1 0.1 0.1 1.0</ambient>
+            <diffuse>0.8 0.0 0.0 1.0</diffuse>
+            <specular>0.4 0.4 0.4</specular>
+            <shininess>10</shininess>
+            <face>both</face>
+          </material>
+        </state>
+      </sphere>
+    </transform>
+    <transform>
+      <translation>
+        2 0 -5
+      </translation>
+      <sphere name="sphere2">
+        <center>0 0 0</center>
+        <radius>1</radius>
+        <subdivisions>5</subdivisions>
+        <state>
+          <enable>vertex_array</enable>
+          <enable>normal_array</enable>
+          <material>
+            <ambient>0.1 0.1 0.1 1.0</ambient>
+            <diffuse>0.0 0.0 0.8 1.0</diffuse>
+            <specular>0.8 0.8 0.8</specular>
+            <shininess>100</shininess>
+          </material>
+          <light>
+            <source>0</source>
+            <position>1.0 0.0 1.0 0.0</position>
+            <specular>0.8 0.8 0.8 1.0</specular>
+          </light>
+        </state>
+      </sphere>
+    </transform>
+  </group>
+</haf_scene_graph>

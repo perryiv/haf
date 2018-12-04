@@ -1,0 +1,103 @@
+
+FUNCTION(HAF_SETUP_LIBRARY LIBRARY_NAME)
+
+IF(MSVC)
+	INSTALL(TARGETS ${LIBRARY_NAME}
+			RUNTIME DESTINATION bin
+			LIBRARY DESTINATION bin
+			ARCHIVE DESTINATION bin )
+ELSE()
+	INSTALL(TARGETS ${LIBRARY_NAME}
+			RUNTIME DESTINATION bin
+			LIBRARY DESTINATION lib
+			ARCHIVE DESTINATION lib )
+ENDIF()
+			
+	# Make the label prefix.
+	IF( MSVC )
+		SET ( HAF_LIBRARY_LABEL_PREFIX "Lib:" )
+	ELSE( MSVC )
+		SET ( HAF_LIBRARY_LABEL_PREFIX "Lib" )
+	ENDIF( MSVC )
+	
+	# Add the target label.
+	SET_TARGET_PROPERTIES(${LIBRARY_NAME} PROPERTIES PROJECT_LABEL "${HAF_LIBRARY_LABEL_PREFIX} ${LIBRARY_NAME}")
+
+	IF(HAF_VERSION)
+		SET_TARGET_PROPERTIES(${LIBRARY_NAME} PROPERTIES VERSION ${HAF_VERSION} )
+	ENDIF(HAF_VERSION)
+	
+	install ( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} DESTINATION include/haf
+            PATTERN "*.h"
+            PATTERN "*.cpp" EXCLUDE
+            PATTERN ".svn" EXCLUDE
+            PATTERN "Debug" EXCLUDE
+            PATTERN "Release" EXCLUDE
+            PATTERN "CMakeLists.txt" EXCLUDE
+            PATTERN "*~" EXCLUDE
+            PATTERN "*.vcproj" EXCLUDE
+            PATTERN ".cdtbuild" EXCLUDE
+            PATTERN ".cdtproject" EXCLUDE
+            PATTERN ".project" EXCLUDE )
+
+ENDFUNCTION(HAF_SETUP_LIBRARY)
+
+
+MACRO ( HAF_SETUP_PLUGIN PLUGIN_NAME )
+
+	# Add the debug posfix.
+	SET_TARGET_PROPERTIES( ${PLUGIN_NAME} PROPERTIES DEBUG_POSTFIX "d")
+	
+	# Set the libary prefix and suffix.
+	SET_TARGET_PROPERTIES (${PLUGIN_NAME} PROPERTIES PREFIX "" SUFFIX ".plug" )
+
+	# Add the target label.
+	IF( MSVC )
+		SET ( HAF_PLUGIN_LABEL_PREFIX "Plugin:" )
+	ELSE( MSVC )
+		SET ( HAF_PLUGIN_LABEL_PREFIX "Plugin" )
+	ENDIF( MSVC )
+	
+	# Add the target label.
+	SET_TARGET_PROPERTIES(${PLUGIN_NAME} PROPERTIES PROJECT_LABEL "${HAF_PLUGIN_LABEL_PREFIX} ${PLUGIN_NAME}")
+	
+	# Set the install paths.
+	INSTALL(TARGETS ${PLUGIN_NAME}
+			RUNTIME DESTINATION bin
+			LIBRARY DESTINATION bin
+			ARCHIVE DESTINATION bin )
+
+	IF(HAF_VERSION)
+		SET_TARGET_PROPERTIES(${PLUGIN_NAME} PROPERTIES VERSION ${HAF_VERSION} )
+	ENDIF(HAF_VERSION)
+
+ENDMACRO(HAF_SETUP_PLUGIN PLUGIN_NAME)
+
+
+#######################################################
+#
+#  Macro to set release and debug library variables.
+#
+#######################################################
+
+MACRO(HAF_SET_DEBUG_RELEASE_LIBRARY _LIBRARY _LIBRARY_DEBUG _LIBRARY_RELEASE)
+	
+	SET ( ${_LIBRARY} ${_LIBRARY_RELEASE} )
+	
+	# If only the release version was found, set the debug variable also to the release version
+     IF (${_LIBRARY_RELEASE} AND NOT ${_LIBRARY_DEBUG})
+       SET(${_LIBRARY_DEBUG} ${${_LIBRARY_RELEASE}})
+       SET(${_LIBRARY}       ${${_LIBRARY_RELEASE}})
+     ENDIF (${_LIBRARY_RELEASE} AND NOT ${_LIBRARY_DEBUG})
+
+     # If only the debug version was found, set the release variable also to the debug version
+     IF (${_LIBRARY_DEBUG} AND NOT ${_LIBRARY_RELEASE})
+       SET(${_LIBRARY_RELEASE} ${${_LIBRARY_DEBUG}})
+       SET(${_LIBRARY}         ${${_LIBRARY_DEBUG}})
+     ENDIF (${_LIBRARY_DEBUG} AND NOT ${_LIBRARY_RELEASE})
+
+	IF ( ${_LIBRARY_RELEASE} AND ${_LIBRARY_DEBUG} )
+		SET( ${_LIBRARY} optimized ${${_LIBRARY_RELEASE}} debug ${${_LIBRARY_DEBUG}} )
+	ENDIF ( ${_LIBRARY_RELEASE} AND ${_LIBRARY_DEBUG} )
+	
+ENDMACRO(HAF_SET_DEBUG_RELEASE_LIBRARY _LIBRARY _LIBRARY_DEBUG _LIBRARY_RELEASE)

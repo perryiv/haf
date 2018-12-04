@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<haf_scene_graph>
+  <sphere name="sphere3">
+    <center>0 0 0</center>
+    <radius>2.0</radius>
+    <subdivisions>3</subdivisions>
+    <state>
+      <enable>depth_test</enable>
+      <enable>lighting</enable>
+      <enable>light0</enable>
+      <enable>vertex_array</enable>
+      <enable>normal_array</enable>
+      <light_model>
+        <name>two_side</name>
+        <params>true</params>
+      </light_model>
+      <material>
+        <ambient>0.1 0.1 0.1 1.0</ambient>
+        <diffuse>0.8 0.0 0.0 1.0</diffuse>
+        <specular>0.4 0.4 0.4</specular>
+        <shininess>10</shininess>
+        <face>front</face>
+      </material>
+      <material>
+        <ambient>0.1 0.1 0.1 1.0</ambient>
+        <diffuse>0.0 0.0 0.8 1.0</diffuse>
+        <specular>0.4 0.4 0.4</specular>
+        <shininess>10</shininess>
+        <face>back</face>
+      </material>
+    </state>
+  </sphere>
+</haf_scene_graph>

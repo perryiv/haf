@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<haf_scene_graph>
+  <group>
+    <sphere>
+      <radius>10</radius>
+      <subdivisions>4</subdivisions>
+      <draw_list_index>2</draw_list_index>
+      <sort_triangles>back_to_front</sort_triangles>
+      <state>
+        <enable>blend</enable>
+        <enable>vertex_array</enable>
+        <enable>normal_array</enable>
+        <blending>
+          <source>src_alpha</source>
+          <destination>one_minus_src_alpha</destination>
+        </blending>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.0 0.8 0.0 0.5</diffuse>
+          <specular>0.5 0.5 0.5 1.0</specular>
+          <shininess>50</shininess>
+          <face>both</face>
+        </material>
+        <light_model>
+          <name>two_side</name>
+          <params>true</params>
+        </light_model>
+      </state>
+    </sphere>
+    <sphere>
+      <radius>7</radius>
+      <center>5 0 0</center>
+      <subdivisions>4</subdivisions>
+      <draw_list_index>1</draw_list_index>
+      <state>
+        <enable>blend</enable>
+        <enable>vertex_array</enable>
+        <enable>normal_array</enable>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.8 0.0 0.0 1.0</diffuse>
+          <specular>0.5 0.5 0.5 1.0</specular>
+          <shininess>50</shininess>
+          <face>both</face>
+        </material>
+        <light_model>
+          <name>two_side</name>
+          <params>true</params>
+        </light_model>
+      </state>
+    </sphere>
+  </group>
+</haf_scene_graph>

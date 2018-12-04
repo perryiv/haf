@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<haf_scene_graph>
+  <group>
+    <transform>
+      <translation>
+        0 0 -10
+      </translation>
+      <transform>
+        <rotation>
+          <axis>0 1 0</axis>
+          <degrees>30</degrees>
+        </rotation>
+        <geometry>
+          <vertices>
+            -1  -1  0
+             0  -1  0
+             1  -1  0
+            -1   0  0
+             0   0  0
+             1   0  0
+            -1   1  0
+             0   1  0
+             1   1  0
+          </vertices>
+          <normals>
+            0 0 1
+            0 0 1
+            0 0 1
+            0 0 1
+            0 0 1
+            0 0 1
+            0 0 1
+            0 0 1
+            0 0 1
+          </normals>
+          <colors>
+            1 0 0 1
+            0 1 0 1
+            0 0 1 1
+            1 0 0 1
+            0 1 0 1
+            0 0 1 1
+            1 0 0 1
+            0 1 0 1
+            0 0 1 1
+          </colors>
+          <primitives>
+            <primitive>
+              <mode>triangle_strip</mode>
+              <indices>
+                0 3 1 4 2 5
+              </indices>
+            </primitive>
+            <primitive>
+              <mode>triangle_strip</mode>
+              <indices>
+                3 6 4 7 5 8
+              </indices>
+            </primitive>
+          </primitives>
+          <state>
+            <enable>vertex_array</enable>
+            <enable>normal_array</enable>
+            <enable>color_array</enable>
+            <disable>lighting</disable>
+          </state>
+        </geometry>
+      </transform>
+    </transform>
+  </group>
+</haf_scene_graph>

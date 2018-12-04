@@ -1,0 +1,5 @@
+LIBRARY	TextOutputWindow
+EXPORTS
+                usul_is_debug_build      @1 PRIVATE
+                usul_plugin_initialize   @2 PRIVATE
+                usul_plugin_finalize     @3 PRIVATE

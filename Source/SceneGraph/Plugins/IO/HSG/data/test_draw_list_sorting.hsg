@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<haf_scene_graph>
+  <group>
+    <transform>
+      <translation>
+        -2 0 -15
+      </translation>
+      <sphere name="sphere1">
+        <center>0 0 0</center>
+        <radius>1</radius>
+        <subdivisions>3</subdivisions>
+        <state>
+          <enable>vertex_array</enable>
+          <enable>normal_array</enable>
+          <shader>
+            <program>phong</program>
+            <parameters>
+              <parameter>
+                <type>float</type>
+                <name>amb</name>
+                <value>0.1</value>
+              </parameter>
+              <parameter>
+                <type>vec3</type>
+                <name>color</name>
+                <value>0.0 0.5 0.0</value>
+              </parameter>
+            </parameters>
+          </shader>
+        </state>
+      </sphere>
+    </transform>
+    <transform>
+      <translation>
+        2 0 -15
+      </translation>
+      <sphere name="sphere2">
+        <center>0 0 0</center>
+        <radius>1</radius>
+        <subdivisions>3</subdivisions>
+        <state>
+          <enable>vertex_array</enable>
+          <enable>normal_array</enable>
+          <shader>
+            <program>phong</program>
+            <parameters>
+              <parameter>
+                <type>float</type>
+                <name>amb</name>
+                <value>0.1</value>
+              </parameter>
+              <parameter>
+                <type>vec3</type>
+                <name>color</name>
+                <value>0.4 0.0 0.4</value>
+              </parameter>
+            </parameters>
+          </shader>
+        </state>
+      </sphere>
+    </transform>
+    <transform>
+      <translation>
+        0 0 -15
+      </translation>
+      <sphere name="sphere3">
+        <center>0 0 0</center>
+        <radius>1.0</radius>
+        <subdivisions>3</subdivisions>
+        <state>
+          <enable>vertex_array</enable>
+          <enable>normal_array</enable>
+          <material>
+            <ambient>0.1 0.1 0.1 1.0</ambient>
+            <diffuse>0.8 0.0 0.0 1.0</diffuse>
+          </material>
+        </state>
+      </sphere>
+    </transform>
+    <transform>
+      <translation>
+        4 0 -15
+      </translation>
+      <instance name="sphere1" />
+    </transform>
+    <transform>
+      <translation>
+        6 0 -15
+      </translation>
+      <instance name="sphere2" />
+    </transform>
+    <transform>
+      <translation>
+        8 0 -15
+      </translation>
+      <instance name="sphere1" />
+    </transform>
+    <transform>
+      <translation>
+        -4 0 -15
+      </translation>
+      <instance name="sphere1" />
+    </transform>
+    <transform>
+      <translation>
+        -6 0 -15
+      </translation>
+      <instance name="sphere2" />
+    </transform>
+    <transform>
+      <translation>
+        -8 0 -15
+      </translation>
+      <instance name="sphere3" />
+    </transform>
+  </group>
+</haf_scene_graph>

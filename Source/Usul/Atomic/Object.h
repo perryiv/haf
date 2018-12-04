@@ -1,0 +1,237 @@
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Copyright (c) 2009, Perry L Miller IV
+//  All rights reserved.
+//  BSD License: http://www.opensource.org/licenses/bsd-license.html
+//
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Convenience class for guarding an object.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+#ifndef _USUL_ATOMIC_OBJECT_CLASS_H_
+#define _USUL_ATOMIC_OBJECT_CLASS_H_
+
+#include "Usul/Config/Config.h"
+#include "Usul/Threads/Guard.h"
+#include "Usul/Threads/Mutex.h"
+#include "Usul/Types/Types.h"
+
+
+namespace Usul {
+namespace Atomic {
+namespace Detail {
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Base class for atomic objects.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+template < class ValueType_ > struct AtomicBase
+{
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Typedefs
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  typedef ValueType_ ValueType;
+  typedef ValueType value_type;
+  typedef Usul::Threads::Mutex Mutex;
+  typedef Usul::Threads::Guard<Mutex> Guard;
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Constructors
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  AtomicBase() : _value(), _mutex()
+  {
+  }
+  explicit AtomicBase ( const ValueType &v ) : _value ( v ), _mutex()
+  {
+  }
+  AtomicBase ( const AtomicBase &v ) : _value ( v._value ), _mutex()
+  {
+  }
+
+protected:
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Get a copy of the value.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  ValueType _getCopy() const
+  {
+    Guard guard ( this );
+    return _value;
+  }
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Set the value.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  void _setValue ( const ValueType &v )
+  {
+    Guard guard ( this );
+    _value = v;
+  }
+
+  void _setValue ( const AtomicBase &v )
+  {
+    this->_setValue ( v._getCopy() );
+  }
+
+
+public:
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Get the mutex. Use with caution.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  Mutex &mutex() const
+  {
+    return _mutex;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Get a reference. Use with caution.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  const ValueType &getReference() const
+  {
+    return _value;
+  }
+  ValueType &getReference()
+  {
+    return _value;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Set the member variable if the predicate is true.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  template < class Pred > bool setIf ( const ValueType &newValue, Pred pred )
+  {
+    Guard guard ( this );
+    const bool result ( pred ( _value ) );
+    if ( result )
+    {
+      _value = newValue;
+    }
+    return result;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Set the new value and return the old one.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  ValueType fetchAndStore ( const ValueType &newValue )
+  {
+    Guard guard ( this );
+    ValueType value ( _value );
+    _value = newValue;
+    return value;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Assignment
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  AtomicBase &operator = ( const AtomicBase &v )
+  {
+    this->_setValue ( v );
+    return *this;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Assignment
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  AtomicBase &operator = ( const ValueType &v )
+  {
+    this->_setValue ( v );
+    return *this;
+  }
+
+
+  /////////////////////////////////////////////////////////////////////////////
+  //
+  //  Typecast operator.
+  //
+  /////////////////////////////////////////////////////////////////////////////
+
+  operator ValueType () const
+  {
+    return this->_getCopy();
+  }
+
+private:
+
+  ValueType _value;
+  mutable Mutex _mutex;
+};
+
+
+} // namespace Detail
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Generic class for atomic objects.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+template < class ValueType_ > struct Object : public Usul::Atomic::Detail::AtomicBase < ValueType_ >
+{
+  // Typedefs
+  typedef Usul::Atomic::Detail::AtomicBase<ValueType_> BaseClass;
+  typedef typename BaseClass::ValueType ValueType;
+  typedef typename BaseClass::Mutex Mutex;
+  typedef typename BaseClass::Guard Guard;
+
+  // Constructors and destructor.
+  Object() : BaseClass(){}
+  explicit Object ( const ValueType &v ) : BaseClass ( v ){}
+  Object ( const Object &v ) : BaseClass ( v ){}
+
+  // Assignment.
+  Object &operator = ( const Object &rhs ) { BaseClass::operator = ( rhs ); return *this; }
+  Object &operator = ( const ValueType &rhs ) { BaseClass::operator = ( rhs ); return *this; }
+};
+
+
+} // namespace Atomic
+} // namespace Usul
+
+
+#endif // _USUL_ATOMIC_OBJECT_CLASS_H_

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<?fileVersion 3.1.0?>
+<ManagedProjectBuildInfo>
+  <project id="Usul.cdt.managedbuild.target.gnu.so.1150933030" name="Shared Library (Gnu)" projectType="cdt.managedbuild.target.gnu.so">
+    <configuration id="cdt.managedbuild.config.gnu.so.debug.1258946369" name="Debug" description="" parent="cdt.managedbuild.config.gnu.so.debug" artifactName="Usul_${HAF_VERSION_STRING}d" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="so" cleanCommand="rm -rf" postbuildStep="rm -f libUsul_${HAF_VERSION_STRING}_Staticd.a ; ar -cq libUsul_${HAF_VERSION_STRING}_Staticd.a */*.o */*/*.o ; cp *.so ${HAF_LIB_DIR} ; cp *.a ${HAF_LIB_DIR}">
+      <toolChain superClass="cdt.managedbuild.toolchain.gnu.so.debug" id="cdt.managedbuild.toolchain.gnu.so.debug.1418872632" name="GCC Tool Chain">
+        <builder superClass="cdt.managedbuild.target.gnu.builder.so.debug" id="cdt.managedbuild.target.gnu.builder.so.debug.1466390511" name="Gnu Make.Debug" arguments=""/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug" id="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.2064611605" name="GCC C++ Compiler">
+          <option superClass="gnu.cpp.compiler.option.include.paths" id="gnu.cpp.compiler.option.include.paths.942291306" valueType="includePath">
+            <listOptionValue value="../../" builtIn="false"/>
+            <listOptionValue value="${TBB_INC_DIR}" builtIn="false"/>
+          </option>
+          <option superClass="gnu.cpp.compiler.option.warnings.toerrors" id="gnu.cpp.compiler.option.warnings.toerrors.1877847072" value="true" valueType="boolean"/>
+          <option superClass="gnu.cpp.compiler.option.other.other" id="gnu.cpp.compiler.option.other.other.2140099016" value="-c -fmessage-length=0 -std=c++0x" valueType="string"/>
+          <option superClass="gnu.cpp.compiler.option.other.verbose" id="gnu.cpp.compiler.option.other.verbose.383697984" value="false" valueType="boolean"/>
+          <option superClass="gnu.cpp.compiler.option.preprocessor.def" id="gnu.cpp.compiler.option.preprocessor.def.1868551989" valueType="definedSymbols">
+            <listOptionValue value="_DEBUG" builtIn="false"/>
+          </option>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.so.debug" id="cdt.managedbuild.tool.gnu.c.compiler.so.debug.1238956746" name="GCC C Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.linker.so.debug" id="cdt.managedbuild.tool.gnu.c.linker.so.debug.568491080" name="GCC C Linker"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.linker.so.debug" id="cdt.managedbuild.tool.gnu.cpp.linker.so.debug.918913267" name="GCC C++ Linker">
+          <option superClass="gnu.cpp.link.option.soname" id="gnu.cpp.link.option.soname.1046221590" value="" valueType="string"/>
+          <option superClass="gnu.cpp.link.option.implname" id="gnu.cpp.link.option.implname.789036678" value="" valueType="string"/>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.assembler.so.debug" id="cdt.managedbuild.tool.gnu.assembler.so.debug.1547484866" name="GCC Assembler"/>
+        <macros/>
+      </toolChain>
+      <resourceConfiguration id="cdt.managedbuild.config.gnu.so.debug.1258946369./Usul/Threads/WindowsMutex.cpp" name="WindowsMutex.cpp" exclude="true" resourcePath="/lib: Usul/Threads/WindowsMutex.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.2064611605./Usul/Threads/WindowsMutex.cpp" rcbsApplicability="disable">
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.2064611605" id="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.2064611605./Usul/Threads/WindowsMutex.cpp" name="GCC C++ Compiler"/>
+      </resourceConfiguration>
+      <resourceConfiguration id="cdt.managedbuild.config.gnu.so.debug.1258946369./Usul/Threads/WindowsMutex.h" name="WindowsMutex.h" exclude="true" resourcePath="/lib: Usul/Threads/WindowsMutex.h" toolsToInvoke="" rcbsApplicability="disable"/>
+    </configuration>
+    <configuration id="cdt.managedbuild.config.gnu.so.release.1974086349" name="Release" description="" parent="cdt.managedbuild.config.gnu.so.release" artifactName="Usul_${HAF_VERSION_STRING}" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="so" cleanCommand="rm -rf" postbuildStep="rm -f libUsul_${HAF_VERSION_STRING}_Static.a ; ar -cq libUsul_${HAF_VERSION_STRING}_Static.a */*.o */*/*.o ; cp *.so ${HAF_LIB_DIR} ; cp *.a ${HAF_LIB_DIR}">
+      <toolChain superClass="cdt.managedbuild.toolchain.gnu.so.release" id="cdt.managedbuild.toolchain.gnu.so.release.920932883" name="GCC Tool Chain">
+        <builder superClass="cdt.managedbuild.target.gnu.builder.so.release" id="cdt.managedbuild.target.gnu.builder.so.release.307230004" name="Gnu Make.Release" arguments=""/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.so.release" id="cdt.managedbuild.tool.gnu.cpp.compiler.so.release.895416336" name="GCC C++ Compiler">
+          <option superClass="gnu.cpp.compiler.option.include.paths" id="gnu.cpp.compiler.option.include.paths.203089974" valueType="includePath">
+            <listOptionValue value="../../" builtIn="false"/>
+            <listOptionValue value="${TBB_INC_DIR}" builtIn="false"/>
+          </option>
+          <option superClass="gnu.cpp.compiler.option.other.verbose" id="gnu.cpp.compiler.option.other.verbose.816427878" value="false" valueType="boolean"/>
+          <option superClass="gnu.cpp.compiler.option.other.other" id="gnu.cpp.compiler.option.other.other.48699291" value="-c -fmessage-length=0 -std=c++0x" valueType="string"/>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.so.release" id="cdt.managedbuild.tool.gnu.c.compiler.so.release.422613956" name="GCC C Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.linker.so.release" id="cdt.managedbuild.tool.gnu.c.linker.so.release.982012485" name="GCC C Linker"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.linker.so.release" id="cdt.managedbuild.tool.gnu.cpp.linker.so.release.2007078001" name="GCC C++ Linker">
+          <option superClass="gnu.cpp.link.option.soname" id="gnu.cpp.link.option.soname.699291831" value="" valueType="string"/>
+          <option superClass="gnu.cpp.link.option.implname" id="gnu.cpp.link.option.implname.1985954637" value="" valueType="string"/>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.assembler.so.release" id="cdt.managedbuild.tool.gnu.assembler.so.release.1043576981" name="GCC Assembler"/>
+        <macros/>
+      </toolChain>
+      <resourceConfiguration id="cdt.managedbuild.config.gnu.so.release.1974086349./Usul/Threads/WindowsMutex.cpp" name="WindowsMutex.cpp" exclude="true" resourcePath="/lib: Usul/Threads/WindowsMutex.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cpp.compiler.so.release.895416336./Usul/Threads/WindowsMutex.cpp" rcbsApplicability="disable">
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.so.release.895416336" id="cdt.managedbuild.tool.gnu.cpp.compiler.so.release.895416336./Usul/Threads/WindowsMutex.cpp" name="GCC C++ Compiler"/>
+      </resourceConfiguration>
+    </configuration>
+    <macros/>
+  </project>
+</ManagedProjectBuildInfo>

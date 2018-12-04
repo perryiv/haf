@@ -1,0 +1,125 @@
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Copyright (c) 2009, Perry L Miller IV
+//  All rights reserved.
+//  BSD License: http://www.opensource.org/licenses/bsd-license.html
+//
+///////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  The plugin class.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+#include "Minerva/Document/Plugin.h"
+#include "Minerva/Document/Document.h"
+
+#include "Usul/Plugins/Helper.h"
+
+#include "boost/algorithm/string/case_conv.hpp"
+#include "boost/filesystem.hpp"
+
+using namespace Minerva;
+
+USUL_IMPLEMENT_IUNKNOWN_MEMBERS ( Plugin, BaseClass );
+USUL_PLUGIN_INITIALIZE ( Plugin );
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Constructor.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+Plugin::Plugin() : BaseClass()
+{
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Destructor.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+Plugin::~Plugin()
+{
+}
+
+
+///////////////////////////////////////////////////////////////////////////////
+//
+//  Query for the interface.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+Usul::Interfaces::IUnknown *Plugin::queryInterface ( unsigned long iid )
+{
+  switch ( iid )
+  {
+  case Usul::Interfaces::IUnknown::IID:
+  case Usul::Interfaces::IPlugin::IID:
+    return static_cast < Usul::Interfaces::IPlugin * > ( this );
+  case Usul::Interfaces::IDocumentCreate::IID:
+    return static_cast < Usul::Interfaces::IDocumentCreate * > ( this );
+  case Usul::Interfaces::IDocumentFilters::IID:
+    return static_cast < Usul::Interfaces::IDocumentFilters * > ( this );
+  default:
+    return 0x0;
+  }
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  Can we create the document?
+//
+/////////////////////////////////////////////////////////////////////////////
+
+bool Plugin::canCreateDocument ( const std::string &file ) const
+{
+  const std::string ext ( boost::algorithm::to_lower_copy ( boost::filesystem::extension ( file ) ) );
+  return ( ".minerva" == ext );
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  Create the document.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+Usul::Interfaces::IUnknown::RefPtr Plugin::createDocument ( IUnknown::RefPtr caller )
+{
+  return IUnknown::QueryPtr ( new Minerva::Document );
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  Return description string.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+std::string Plugin::pluginDescription() const
+{
+  return "Multi-body, highly configurable geospatial tiling engine";
+}
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+//  Return description string.
+//
+/////////////////////////////////////////////////////////////////////////////
+
+void Plugin::appendDocumentFilters ( const std::string &s, Filters &filters ) const
+{
+  const std::string type ( boost::algorithm::to_lower_copy ( s ) );
+  if ( ( "open" == type ) || ( "save" == type ) )
+  {
+    filters.push_back ( Filters::value_type ( "Minerva (*.minerva)", "*.minerva" ) );
+  }
+}

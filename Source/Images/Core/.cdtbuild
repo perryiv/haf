@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<?fileVersion 3.1.0?>
+<ManagedProjectBuildInfo>
+  <project id="ImagesCore.cdt.managedbuild.target.gnu.lib.480871803" name="Static Library (Gnu)" projectType="cdt.managedbuild.target.gnu.lib">
+    <configuration id="cdt.managedbuild.config.gnu.lib.debug.53833799" name="Debug" description="" parent="cdt.managedbuild.config.gnu.lib.debug" artifactName="ImagesCore" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="a" cleanCommand="rm -rf">
+      <toolChain superClass="cdt.managedbuild.toolchain.gnu.lib.debug" id="cdt.managedbuild.toolchain.gnu.lib.debug.1907181762" name="GCC Tool Chain">
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug" id="cdt.managedbuild.tool.gnu.cpp.compiler.lib.debug.562874682" name="GCC C++ Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.debug" id="cdt.managedbuild.tool.gnu.c.compiler.lib.debug.1384030910" name="GCC C Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.archiver.lib.debug" id="cdt.managedbuild.tool.gnu.archiver.lib.debug.1220746452" name="GCC Archiver"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.assembler.lib.debug" id="cdt.managedbuild.tool.gnu.assembler.lib.debug.605636127" name="GCC Assembler"/>
+      </toolChain>
+    </configuration>
+    <configuration id="cdt.managedbuild.config.gnu.lib.release.1194662334" name="Release" description="" parent="cdt.managedbuild.config.gnu.lib.release" artifactName="ImagesCore" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="a" cleanCommand="rm -rf">
+      <toolChain superClass="cdt.managedbuild.toolchain.gnu.lib.release" id="cdt.managedbuild.toolchain.gnu.lib.release.1023635291" name="GCC Tool Chain">
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.lib.release" id="cdt.managedbuild.tool.gnu.cpp.compiler.lib.release.246452522" name="GCC C++ Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.lib.release" id="cdt.managedbuild.tool.gnu.c.compiler.lib.release.240252454" name="GCC C Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.archiver.lib.release" id="cdt.managedbuild.tool.gnu.archiver.lib.release.345146742" name="GCC Archiver"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.assembler.lib.release" id="cdt.managedbuild.tool.gnu.assembler.lib.release.252292877" name="GCC Assembler"/>
+      </toolChain>
+    </configuration>
+  </project>
+</ManagedProjectBuildInfo>

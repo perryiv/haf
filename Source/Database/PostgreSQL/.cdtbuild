@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<?fileVersion 3.1.0?>
+<ManagedProjectBuildInfo>
+  <project id="Database PostgreSQL.cdt.managedbuild.target.gnu.so.1067353536" name="Shared Library (Gnu)" projectType="cdt.managedbuild.target.gnu.so">
+    <configuration id="cdt.managedbuild.config.gnu.so.debug.2042995950" name="Debug" description="" parent="cdt.managedbuild.config.gnu.so.debug" artifactName="DatabasePostgreSQL_${HAF_VERSION_STRING}d" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="so" cleanCommand="rm -rf" postbuildStep="rm -f libDatabasePostgreSQL_${HAF_VERSION_STRING}_Staticd.a ; ar -cq libDatabasePostgreSQL_${HAF_VERSION_STRING}_Staticd.a *.o ; cp *.so ${HAF_LIB_DIR} ; cp *.a ${HAF_LIB_DIR}">
+      <toolChain superClass="cdt.managedbuild.toolchain.gnu.so.debug" id="cdt.managedbuild.toolchain.gnu.so.debug.1101305264" name="GCC Tool Chain">
+        <builder superClass="cdt.managedbuild.target.gnu.builder.so.debug" id="cdt.managedbuild.target.gnu.builder.so.debug.1652723124" name="Gnu Make.Debug" arguments=""/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug" id="cdt.managedbuild.tool.gnu.cpp.compiler.so.debug.69843253" name="GCC C++ Compiler">
+          <option superClass="gnu.cpp.compiler.option.include.paths" id="gnu.cpp.compiler.option.include.paths.1211011849" valueType="includePath">
+            <listOptionValue value="../../../" builtIn="false"/>
+            <listOptionValue value="/usr/include/postgresql" builtIn="false"/>
+            <listOptionValue value="${TBB_INC_DIR}" builtIn="false"/>
+          </option>
+          <option superClass="gnu.cpp.compiler.option.preprocessor.def" id="gnu.cpp.compiler.option.preprocessor.def.1128131687" valueType="definedSymbols">
+            <listOptionValue value="_DEBUG" builtIn="false"/>
+          </option>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.so.debug" id="cdt.managedbuild.tool.gnu.c.compiler.so.debug.403366968" name="GCC C Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.linker.so.debug" id="cdt.managedbuild.tool.gnu.c.linker.so.debug.591374916" name="GCC C Linker"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.linker.so.debug" id="cdt.managedbuild.tool.gnu.cpp.linker.so.debug.806617016" name="GCC C++ Linker">
+          <option superClass="gnu.cpp.link.option.paths" id="gnu.cpp.link.option.paths.2043002436"/>
+          <option superClass="gnu.cpp.link.option.libs" id="gnu.cpp.link.option.libs.2109948531"/>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.assembler.so.debug" id="cdt.managedbuild.tool.gnu.assembler.so.debug.1557755412" name="GCC Assembler"/>
+        <macros/>
+      </toolChain>
+    </configuration>
+    <configuration id="cdt.managedbuild.config.gnu.so.release.347007273" name="Release" description="" parent="cdt.managedbuild.config.gnu.so.release" artifactName="DatabasePostgreSQL_${HAF_VERSION_STRING}" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" artifactExtension="so" cleanCommand="rm -rf" postbuildStep="rm -f libDatabasePostgreSQL_${HAF_VERSION_STRING}_Static.a ; ar -cq libDatabasePostgreSQL_${HAF_VERSION_STRING}_Static.a *.o ; cp *.so ${HAF_LIB_DIR} ; cp *.a ${HAF_LIB_DIR}">
+      <toolChain superClass="cdt.managedbuild.toolchain.gnu.so.release" id="cdt.managedbuild.toolchain.gnu.so.release.630771750" name="GCC Tool Chain">
+        <builder superClass="cdt.managedbuild.target.gnu.builder.so.release" id="cdt.managedbuild.target.gnu.builder.so.release.66005880" name="Gnu Make.Release" arguments=""/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.compiler.so.release" id="cdt.managedbuild.tool.gnu.cpp.compiler.so.release.1721120995" name="GCC C++ Compiler">
+          <option superClass="gnu.cpp.compiler.option.include.paths" id="gnu.cpp.compiler.option.include.paths.1924854901" valueType="includePath">
+            <listOptionValue value="../../../" builtIn="false"/>
+            <listOptionValue value="/usr/include/postgresql" builtIn="false"/>
+            <listOptionValue value="${TBB_INC_DIR}" builtIn="false"/>
+          </option>
+        </tool>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.compiler.so.release" id="cdt.managedbuild.tool.gnu.c.compiler.so.release.1034554201" name="GCC C Compiler"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.c.linker.so.release" id="cdt.managedbuild.tool.gnu.c.linker.so.release.1278302237" name="GCC C Linker"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.cpp.linker.so.release" id="cdt.managedbuild.tool.gnu.cpp.linker.so.release.1922755523" name="GCC C++ Linker"/>
+        <tool superClass="cdt.managedbuild.tool.gnu.assembler.so.release" id="cdt.managedbuild.tool.gnu.assembler.so.release.2130482186" name="GCC Assembler"/>
+        <macros/>
+      </toolChain>
+    </configuration>
+    <macros/>
+  </project>
+</ManagedProjectBuildInfo>

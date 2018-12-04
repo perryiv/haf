@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<haf_scene_graph>
+  <group>
+    <transform name="more spheres">
+      <translation>
+        0 0 0
+      </translation>
+      <transform name="spheres">
+        <translation>
+          0 0 -20
+        </translation>
+        <group name="sphere">
+          <sphere>
+            <center>0 0 0</center>
+            <radius>2</radius>
+            <subdivisions>3</subdivisions>
+            <state>
+              <enable>vertex_array</enable>
+              <enable>normal_array</enable>
+              <shader>
+                <program>phong</program>
+                <parameters>
+                  <parameter>
+                    <type>float</type>
+                    <name>amb</name>
+                    <value>0.1</value>
+                  </parameter>
+                  <parameter>
+                    <type>vec3</type>
+                    <name>color</name>
+                    <value>0 0.2 0.4</value>
+                  </parameter>
+                </parameters>
+              </shader>
+            </state>
+          </sphere>
+        </group>
+        <transform>
+          <translation>
+            15 0 0
+          </translation>
+          <instance name="sphere" />
+        </transform>
+        <transform>
+          <translation>
+            10 0 0
+          </translation>
+          <instance name="sphere" />
+        </transform>
+        <transform>
+          <translation>
+            5 0 0
+          </translation>
+          <instance name="sphere" />
+        </transform>
+        <transform>
+          <translation>
+            -5 0 0
+          </translation>
+          <instance name="sphere" />
+        </transform>
+        <transform>
+          <translation>
+            -10 0 0
+          </translation>
+          <instance name="sphere" />
+        </transform>
+        <transform>
+          <translation>
+            -15 0 0
+          </translation>
+          <instance name="sphere" />
+        </transform>
+      </transform>
+      <transform>
+        <translation>
+          0 10 0
+        </translation>
+        <instance name="spheres" />
+      </transform>
+      <transform>
+        <translation>
+          0 5 0
+        </translation>
+        <instance name="spheres" />
+      </transform>
+      <transform>
+        <translation>
+          0 -5 0
+        </translation>
+        <instance name="spheres" />
+      </transform>
+      <transform>
+        <translation>
+          0 -10 0
+        </translation>
+        <instance name="spheres" />
+      </transform>
+    </transform>
+    <transform>
+      <translation>
+        0 0 -5
+      </translation>
+      <instance name="more spheres" />
+    </transform>
+    <transform>
+      <translation>
+        0 0 -10
+      </translation>
+      <instance name="more spheres" />
+    </transform>
+    <transform>
+      <translation>
+        0 0 -15
+      </translation>
+      <instance name="more spheres" />
+    </transform>
+    <transform>
+      <translation>
+        0 0 -20
+      </translation>
+      <instance name="more spheres" />
+    </transform>
+  </group>
+</haf_scene_graph>

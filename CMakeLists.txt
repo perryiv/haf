@@ -1,0 +1,15 @@
+
+cmake_minimum_required(VERSION 2.6)
+
+SET ( HAF_STATIC_SUFFIX "_Static" )
+
+OPTION ( BUILD_STATIC_LIBRARIES "Build and use static libraries" OFF )
+IF ( BUILD_STATIC_LIBRARIES )
+  ADD_DEFINITIONS ( "-DHAF_BUILD_STATIC_LIBRARIES" )
+  SET ( LIBRARY_TYPE STATIC )
+ELSE()
+  SET ( LIBRARY_TYPE SHARED )
+ENDIF()
+
+
+add_subdirectory ( Source )
